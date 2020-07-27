@@ -26,15 +26,18 @@ const foo2 = Cmp => props => {
 // );
 // };
 // };
+
 function Child (props) {
   return <div> Child {props.name}</div>;
 }
 
-// const Foo = foo(Child);
+const Foo = foo(Child);
 // 链式调用
-const Foo = foo2(foo(foo(Child)));
+// const Foo = foo2(foo(foo(Child)));
 
-export default class HocPage extends Component {
+@foo2
+@foo
+class HocPage extends Component {
   render () {
     return (
       <div>
@@ -44,3 +47,4 @@ export default class HocPage extends Component {
     );
   }
 }
+export default HocPage
