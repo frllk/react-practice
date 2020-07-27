@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Button from 'antd/es/button'
+import "antd/dist/antd.css"
+
 // hoc: 是⼀个函数，接收⼀个组件，返回另外⼀个组件
 //这⾥⼤写开头的Cmp是指function或者class组件
 const foo = Cmp => props => {
@@ -43,6 +46,7 @@ class HocPage extends Component {
       <div>
         <h3>HocPage</h3>
         <Foo name="msg" />
+        <Button type="primary">Button</Button>
       </div>
     );
   }
