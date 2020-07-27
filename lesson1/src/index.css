@@ -22,6 +22,12 @@ code {
   border: solid 1px red;
 }
 
+.greenBorder {
+  margin: 10px;
+  padding: 10px;
+  border: solid 1px green;
+}
+
 .red {
   color: red;
 }
