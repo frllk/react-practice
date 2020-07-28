@@ -11,6 +11,9 @@ export default function createStore (reducer) {
   function subscribe (listener) {
     currentListeners.push(listener)
   }
+
+  dispatch({ type: 'REDUX/KKB' })
+
   return {
     getState,
     dispatch,
