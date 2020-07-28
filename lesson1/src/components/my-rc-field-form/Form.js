@@ -4,19 +4,21 @@ import useForm from './useForm'
 
 
 // 组件：hook
-export default function Form ({ form, children, onFinish, onFinishFailed }) {
-  const [fromInstance] = useForm(form)
-  fromInstance.setCallback({
+export default function Form ({ form, children, onFinish, onFinishFailed }, ref) {
+  const [formInstance] = useForm(form)
+  React.useImperativeHandle(ref, () => formInstance);
+  console.log('formInstance', formInstance); // sys-log
+  formInstance.setCallback({
     onFinish, onFinishFailed
   })
   return (
     <form onSubmit={
       event => {
         event.preventDefault()
-        fromInstance.submit()
+        formInstance.submit()
       }
     }>
-      <FieldContext.Provider value={fromInstance}>
+      <FieldContext.Provider value={formInstance}>
         {children}
       </FieldContext.Provider>
     </form>

@@ -3,7 +3,7 @@ import React from 'react';
 // import HocPage from './pages/HOC/HocPage';
 // import AntdFormPage from './pages/AntdForm/AntdFormPage';
 import MyRCFieldForm from './pages/AntdForm/MyRCFieldForm';
-import MyRCForm from './pages/AntdForm/MyRCForm';
+// import MyRCForm from './pages/AntdForm/MyRCForm';
 
 
 function App () {
@@ -15,8 +15,8 @@ function App () {
       {/* <HocPage /> */}
       {/* antd表单 */}
       {/* <AntdFormPage /> */}
-      {/* <MyRCFieldForm /> */}
-      <MyRCForm />
+      <MyRCFieldForm />
+      {/* <MyRCForm /> */}
     </div>
   );
 }
