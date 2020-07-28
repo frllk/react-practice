@@ -6,7 +6,7 @@ import Input from "../../components/Input";
 const nameRules = { required: true, message: "请输入姓名！" };
 const passworRules = { required: true, message: "请输入密码！" };
 
-export default function MyRCFieldForm (props) {
+/* export default function MyRCFieldForm (props) {
   const [form] = Form.useForm();
 
   // 表单校验成功执行
@@ -40,9 +40,9 @@ export default function MyRCFieldForm (props) {
       </Form>
     </div>
   );
-}
+} */
 
-/* export default class MyRCFieldForm extends Component {
+export default class MyRCFieldForm extends Component {
   formRef = React.createRef();
   componentDidMount () {
     console.log("form", this.formRef.current); //sy-log
@@ -76,4 +76,4 @@ export default function MyRCFieldForm (props) {
       </div>
     );
   }
-} */
+}

@@ -2,8 +2,9 @@ import React from 'react';
 // import ContextPage from './pages/Context/ContextPage';
 // import HocPage from './pages/HOC/HocPage';
 // import AntdFormPage from './pages/AntdForm/AntdFormPage';
-import MyRCFieldForm from './pages/AntdForm/MyRCFieldForm';
+// import MyRCFieldForm from './pages/AntdForm/MyRCFieldForm';
 // import MyRCForm from './pages/AntdForm/MyRCForm';
+import DialogPage from './pages/DialogPage';
 
 
 function App () {
@@ -15,8 +16,9 @@ function App () {
       {/* <HocPage /> */}
       {/* antd表单 */}
       {/* <AntdFormPage /> */}
-      <MyRCFieldForm />
+      {/* <MyRCFieldForm /> */}
       {/* <MyRCForm /> */}
+      <DialogPage />
     </div>
   );
 }

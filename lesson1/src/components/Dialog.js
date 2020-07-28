@@ -1,5 +1,8 @@
-import React, {Component} from "react";
-import {createPortal} from "react-dom";
+import React, { Component } from "react";
+import { createPortal } from "react-dom";
+
+
+// 出现在body下面，使用传送门方式
 
 export default class Dialog extends Component {
   constructor(props) {
@@ -9,13 +12,13 @@ export default class Dialog extends Component {
     doc.body.appendChild(this.node);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     if (this.node) {
       window.document.body.removeChild(this.node);
     }
   }
 
-  render() {
+  render () {
     return createPortal(
       <div className="dialog">
         <h3>Dialog</h3>
