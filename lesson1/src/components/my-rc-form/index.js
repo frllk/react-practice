@@ -1,6 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
-export default function createForm(Cmp) {
+// 接收一个组件，返回一个新的组件
+export default function createForm (Cmp) {
   return class extends Component {
     constructor(props) {
       super(props);
@@ -9,8 +10,8 @@ export default function createForm(Cmp) {
     }
 
     handleChange = e => {
-      const {name, value} = e.target;
-      this.setState({[name]: value});
+      const { name, value } = e.target;
+      this.setState({ [name]: value });
     };
 
     getFieldDecorator = (field, option) => InputCmp => {
@@ -29,9 +30,11 @@ export default function createForm(Cmp) {
     };
     validateFields = callback => {
       let err = [];
-      // 校验 检验规则 this.options
-      // 校验的值是this.state
+      // 校验 
+      // 检验规则是 this.options
+      // 校验的值是 this.state
 
+      console.log('validateFields', this.state, this.options)
       for (let field in this.options) {
         // 判断state[field]是否是undefined
         // 如果是undefind err.push({[field]: 'err})
@@ -58,7 +61,7 @@ export default function createForm(Cmp) {
         }
       };
     };
-    render() {
+    render () {
       return <Cmp {...this.props} {...this.getForm()} />;
     }
   };
