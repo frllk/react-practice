@@ -1,9 +1,10 @@
 import React from 'react';
+import ReduxPage from './pages/ReduxPage';
 
 function App () {
   return (
     <div className="App">
-      Redux
+      <ReduxPage />
     </div>
   );
 }
@@ -16,7 +17,7 @@ console.log(array1.reduce(reducer));
 console.log(array1.reduce(reducer, 5));
 // expected output: 15 */
 
-function f1 (arg) {
+/* function f1 (arg) {
   console.log("f1", arg);
   return arg;
 }
@@ -48,6 +49,6 @@ function compose (...funcs) {
   }
 
   return funcs.reduce((a, b) => (...args) => a(b(...args)))
-}
+} */
 
 export default App;
