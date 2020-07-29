@@ -1,6 +1,7 @@
 import React from 'react';
 import ContextPage from './pages/ContextPage';
 import HocPage from './pages/HocPage';
+import HookPage from './pages/Hook/HookPage';
 
 function App () {
   return (
@@ -8,7 +9,9 @@ function App () {
       {/* 组件跨层级通信 - Context */}
       {/* <ContextPage /> */}
       {/* 高阶组件 */}
-      <HocPage />
+      {/* <HocPage /> */}
+      {/* Hook */}
+      <HookPage />
     </div>
   );
 }
