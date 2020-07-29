@@ -1,4 +1,10 @@
-export default function createStore (reducer) {
+export default function createStore (reducer, enhancer) {
+  if (enhancer) {
+    // 加强 enhancer
+    // 原版dispatch只能接受普通对象，加强之后变强大，可以处理多种形式，如callback、promise等
+    return enhancer(createStore)(reducer)
+  }
+
 
   let currentState;
   let currentlistener = []

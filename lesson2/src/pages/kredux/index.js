@@ -1,3 +1,3 @@
 import createStore from './createStore'
-
-export { createStore }
+import applyMiddleware from './applyMiddleware'
+export { createStore, applyMiddleware }
