@@ -21,12 +21,23 @@ export default class ReduxPage extends Component {
     store.dispatch({ type: 'ADD' })
     // console.log('add', store.getState()); // sys-log
   }
+
+  asyAdd = () => {
+    store.dispatch((dispatch, getState) => {
+      setTimeout(() => {
+        dispatch({ type: 'ADD' })
+        console.log('getState', getState()); // sys-log
+      }, 1000);
+    })
+  }
+
   render () {
     return (
       <div>
         <h1>redux上手 - 实现一个累加器</h1>
         <p>{store.getState()}</p>
         <button onClick={this.add} >add</button>
+        <button onClick={this.asyAdd} >asyAdd</button>
       </div>
     )
   }

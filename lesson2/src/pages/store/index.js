@@ -1,5 +1,7 @@
-// import { createStore } from 'redux'
-import { createStore } from '../kredux'
+import { createStore, applyMiddleware } from 'redux'
+// import { createStore } from '../kredux'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 
 /**
  * 修改规则：累加器
@@ -17,6 +19,6 @@ function countReducer (state = 0, action) {
   }
 }
 
-const store = createStore(countReducer)
+const store = createStore(countReducer, applyMiddleware(thunk, logger))
 
 export default store
