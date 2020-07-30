@@ -1,5 +1,5 @@
-import { createStore, applyMiddleware } from 'redux'
-// import { createStore, applyMiddleware } from '../kredux'
+// import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware } from '../kredux'
 // import thunk from 'redux-thunk'
 // import logger from 'redux-logger'
 // import promise from 'redux-promise'

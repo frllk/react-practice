@@ -1,10 +1,12 @@
 import React from 'react';
 import ReduxPage from './pages/ReduxPage';
+import CombineReducersPage from './pages/combineReducersPage';
 
 function App () {
   return (
     <div className="App">
-      <ReduxPage />
+      {/* <ReduxPage /> */}
+      <CombineReducersPage />
     </div>
   );
 }
