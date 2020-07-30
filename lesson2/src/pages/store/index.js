@@ -1,5 +1,5 @@
 // import { createStore, applyMiddleware } from 'redux'
-import { createStore, applyMiddleware } from '../kredux'
+import { createStore, applyMiddleware, combineReducers } from '../kredux'
 // import thunk from 'redux-thunk'
 // import logger from 'redux-logger'
 // import promise from 'redux-promise'
@@ -21,8 +21,16 @@ function countReducer (state = 0, action) {
   }
 }
 
-const store = createStore(countReducer, applyMiddleware(thunk, logger, promise))
-
+// const store = createStore(
+//   countReducer,
+//   applyMiddleware(thunk, logger, promise)
+// )
+const store = createStore(
+  countReducer,
+  // ! 课后补充： combineReducers用法
+  // combineReducers({home: countReducer}),
+  applyMiddleware(thunk, logger, promise)
+);
 export default store
 
 /**

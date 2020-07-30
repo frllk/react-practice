@@ -5,8 +5,8 @@ import CombineReducersPage from './pages/combineReducersPage';
 function App () {
   return (
     <div className="App">
-      {/* <ReduxPage /> */}
-      <CombineReducersPage />
+      <ReduxPage />
+      {/* <CombineReducersPage /> */}
     </div>
   );
 }
