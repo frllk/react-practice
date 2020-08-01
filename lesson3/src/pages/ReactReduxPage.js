@@ -1,10 +1,36 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+// import { connect } from 'react-redux'
+// import { bindActionCreators } from "redux";
+import { connect, bindActionCreators } from "../kReactRedux";
 
+@connect(
+  // mapStateToProps
+  ({ count }) => ({ count }),
+  // mapDispatchToProps object | function
+  // object
+  // {
+  //   add: () => ({ type: 'ADD' })
+  // }
+  // function
+  (dispatch) => {
+    let creators = {
+      add: () => ({ type: 'ADD' }),
+      minus: () => ({ type: 'MINUS' })
+    }
+    creators = bindActionCreators(creators, dispatch)
+    return { dispatch, ...creators }
+  }
+)
 class ReactReduxPage extends Component {
-  render() {
+  render () {
+    const { count, dispatch, add } = this.props
+    console.log('pr', this.props); // sys-log
     return (
       <div>
         <h3>ReactReduxPage</h3>
+        <p>{count}</p>
+        <button onClick={() => dispatch({ type: 'ADD' })}>dispatch add(function)</button>
+        <button onClick={add}> add(object)</button>
       </div>
     );
   }

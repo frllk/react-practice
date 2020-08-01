@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useReducer, useEffect, useLayoutEffect } from "react";
+import { counterReducer } from '../store'
 
-export default function HooksPage(props) {
+const init = (initArg) => {
+  return initArg - 0
+}
+export default function HooksPage (props) {
+  const [state, dispatch] = useReducer(counterReducer, '0', init)
+
+  // 有延迟
+  useEffect(() => {
+    console.log("useEffect"); //sy-log
+  }, [state]);
+
+  // 同步
+  useLayoutEffect(() => {
+    console.log("useLayoutEffect"); //sy-log
+  }, []);
+
+
   return (
     <div>
       <h3>HooksPage</h3>
+      <p>{state}</p>
+      <button onClick={() => dispatch({ type: 'ADD' })} >add</button>
     </div>
   );
 }
