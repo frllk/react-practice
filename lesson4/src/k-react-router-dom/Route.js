@@ -10,7 +10,7 @@ export default class Route extends Component {
     // Route进行重新渲染的时候，才会进行更新 ===> 监听location
     return <RouterContext.Consumer>
       {(context) => {
-        console.log('context', context); // sys-log
+        // console.log('context', context); // sys-log
         const location = context.location
         const { children, component, render, path } = this.props
         // match: 匹配就渲染，不匹配就不渲染
@@ -21,7 +21,26 @@ export default class Route extends Component {
         console.log('match', match); // sys-log
         const props = { ...context, match }
 
-        return match ? React.createElement(component, props) : null
+        // return match ? React.createElement(component, props) : null
+
+
+        // match children，component，render，null
+
+        // 不match children（function），null
+
+        return match
+          ? children
+            ? typeof children === 'function'
+              ? children(props)
+              : children
+            : component
+              ? React.createElement(component, props)
+              : render
+                ? render(props)
+                : null
+          : typeof children === 'function'
+            ? children(props)
+            : null
       }}
     </RouterContext.Consumer>
   }

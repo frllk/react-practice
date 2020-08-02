@@ -48,7 +48,7 @@ function App () {
           exact
           path="/"
           // children={() => <div>children page</div>} // function 不管是否匹配，都会被渲染
-          component={HomePage} // 必须匹配的时候才会被渲染
+          // component={HomePage} // 必须匹配的时候才会被渲染
           render={() => <div>render page</div>} // function 必须匹配的时候才会被渲染
         />
         <Route path="/user" component={UserPage} />
