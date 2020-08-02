@@ -1,24 +1,22 @@
 // useRouteMatch,
-//   useHistory,
-//   useLocation,
-//   useParams,
+// useHistory,
+// useLocation,
+// useParams,
 
-import React, {useContext} from "react";
-import {RouterContext} from "./Context";
+import React, { useContext } from 'react'
+import { RouterContext } from './Context'
 
-export function useHistory() {
+export function useHistory () {
   return useContext(RouterContext).history;
 }
-
-export function useLocation() {
+export function useLocation () {
   return useContext(RouterContext).location;
 }
-
-export function useRouteMatch() {
+export function useRouteMatch () {
   return useContext(RouterContext).match;
 }
-
-export function useParams() {
-  const match = useContext(RouterContext).match;
-  return match ? match.params : {};
+export function useParams () {
+  // Context 读取有一个原理：可以多层嵌套，读取离他最近的一层
+  const match = useContext(RouterContext).history;
+  return match ? match.params : {}
 }

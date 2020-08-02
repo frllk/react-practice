@@ -54,6 +54,7 @@ function App () {
           <Route path="/user" component={UserPage} />
           <Route path="/login" component={LoginPage} />
           {/* <Route path="/product/:id" component={Product} /> */}
+          <Route path="/product/:id" render={() => <Product />} />
           {/* Route：不加path，默认是可以匹配上的 */}
           <Route component={_404Page} />
         </Switch>
@@ -64,7 +65,13 @@ function App () {
 
 export default App;
 
-function Product ({ match }) {
+// function Product ({ match }) {
+function Product () {
+  const match = useRouteMatch()
+  const history = useHistory()
+  const location = useLocation()
+  const _params = useParams()
+  console.log('hhh', match, history, location, _params); // sys-log
   console.log("match", match); //sy-log
   const { params, url } = match;
   const { id } = params;

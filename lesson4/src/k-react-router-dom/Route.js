@@ -23,7 +23,10 @@ export default class Route extends Component {
         // location.pathname === path
         // window.location.pathname === path
         console.log('match', match); // sys-log
-        const props = { ...context, match }
+        const props = {
+          ...context // 每次用的都是取得最顶层的，如何取最近的？===> route里面在包一层
+          , match
+        }
 
         // return match ? React.createElement(component, props) : null
 
@@ -32,19 +35,24 @@ export default class Route extends Component {
 
         // 不match children（function），null
 
-        return match
-          ? children
-            ? typeof children === 'function'
-              ? children(props)
-              : children
-            : component
-              ? React.createElement(component, props)
-              : render
-                ? render(props)
-                : null
-          : typeof children === 'function'
-            ? children(props)
-            : null
+        return (
+          // route里面在包一层，传递最新的数据
+          <RouterContext.Provider value={props}>
+            {match
+              ? children
+                ? typeof children === 'function'
+                  ? children(props)
+                  : children
+                : component
+                  ? React.createElement(component, props)
+                  : render
+                    ? render(props)
+                    : null
+              : typeof children === 'function'
+                ? children(props)
+                : null}
+          </RouterContext.Provider>
+        )
       }}
     </RouterContext.Consumer>
   }
