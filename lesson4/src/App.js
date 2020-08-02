@@ -82,7 +82,7 @@ function Product () {
     </div>
   );
 } */
-@withRouter
+/* @withRouter
 class Product extends Component {
   render () {
     console.log('product props', this.props); // sys-log
@@ -96,7 +96,34 @@ class Product extends Component {
       </div>
     );
   }
+} */
+@withRouter
+class Product extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { confirm: true };
+  }
+  render () {
+    const { params } = this.props.match;
+    const { id } = params;
+    // console.log("props", this.props); //sy-log
+    return (
+      <div>
+        Product:{id}
+        <Prompt
+          when={this.state.confirm}
+          message="Are you sure you want to leave?"
+        // message={location => {
+        // return "Are you sure you want to leave-fun";
+        // }}
+        />
+      </div>
+    );
+  }
 }
+
+
+
 function Detail ({ match }) {
   return (
     <div>

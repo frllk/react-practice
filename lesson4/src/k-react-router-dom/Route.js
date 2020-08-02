@@ -22,7 +22,7 @@ export default class Route extends Component {
             : context.match
         // location.pathname === path
         // window.location.pathname === path
-        console.log('match', match); // sys-log
+        // console.log('match', match); // sys-log
         const props = {
           ...context // 每次用的都是取得最顶层的，如何取最近的？===> route里面在包一层
           , match

@@ -10,7 +10,7 @@ export default class Switch extends Component {
   render () {
     return <RouterContext.Consumer>
       {(context) => {
-        console.log('context', context); // sys-log
+        // console.log('context', context); // sys-log
         // 判断是否匹配 location 
         // 看： 是单个的对象，或者多个的对象数组
         // match: 是否匹配  element：记录匹配的元素
