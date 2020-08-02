@@ -30,19 +30,6 @@ export default function Prompt ({ message, when = true }) {
 }
 
 class LifeCycle extends React.Component {
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.when) {
-      if (!this.props.when || this.props.message !== nextProps.message) {
-        if (this.unblock) this.unblock();
-        this.unblock = this.context.router.history.block(nextProps.message);
-      }
-    } else {
-      if (this.unblock) {
-        this.unblock();
-        this.unblock = null;
-      }
-    }
-  }
   componentDidMount () {
     if (this.props.onMount) {
       this.props.onMount.call(this, this)
