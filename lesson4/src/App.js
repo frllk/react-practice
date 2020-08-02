@@ -1,5 +1,4 @@
-import React from 'react';
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import React, { Component } from 'react';
 // import {
 //   BrowserRouter as Router,
 //   Route,
@@ -65,7 +64,7 @@ function App () {
 
 export default App;
 
-// function Product ({ match }) {
+/* // function Product ({ match }) {
 function Product () {
   const match = useRouteMatch()
   const history = useHistory()
@@ -82,6 +81,21 @@ function Product () {
       <Route path={url + "/detail"} component={Detail} />
     </div>
   );
+} */
+@withRouter
+class Product extends Component {
+  render () {
+    console.log('product props', this.props); // sys-log
+    const { params, url } = this.props.match
+    const { id } = params
+    return (
+      <div>
+        <h1>Search-{id}</h1>
+        <Link to={url + "/detail"}>详情</Link>
+        <Route path={url + "/detail"} component={Detail} />
+      </div>
+    );
+  }
 }
 function Detail ({ match }) {
   return (
