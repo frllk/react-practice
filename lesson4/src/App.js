@@ -42,21 +42,21 @@ function App () {
         <Link to="/product/123">商品</Link>
         {/* Switch：独占路由 渲染与该地址匹配的第一个子节点 <Route> 或者 <Redirect>。 */}
         {/* Switch：只跟第一个匹配上的渲染 */}
-        {/* <Switch> */}
-        {/* Route渲染内容的三种方式 */}
-        <Route
-          exact
-          path="/"
-          // children={() => <div>children page</div>} // function 不管是否匹配，都会被渲染
-          // component={HomePage} // 必须匹配的时候才会被渲染
-          render={() => <div>render page</div>} // function 必须匹配的时候才会被渲染
-        />
-        <Route path="/user" component={UserPage} />
-        <Route path="/login" component={LoginPage} />
-        {/* <Route path="/product/:id" component={Product} /> */}
-        {/* Route：不加path，默认是可以匹配上的 */}
-        <Route component={_404Page} />
-        {/* </Switch> */}
+        <Switch>
+          {/* Route渲染内容的三种方式 */}
+          <Route
+            exact
+            path="/"
+            // children={() => <div>children page</div>} // function 不管是否匹配，都会被渲染
+            // component={HomePage} // 必须匹配的时候才会被渲染
+            render={() => <div>render page</div>} // function 必须匹配的时候才会被渲染
+          />
+          <Route path="/user" component={UserPage} />
+          <Route path="/login" component={LoginPage} />
+          {/* <Route path="/product/:id" component={Product} /> */}
+          {/* Route：不加path，默认是可以匹配上的 */}
+          <Route component={_404Page} />
+        </Switch>
       </Router>
     </div>
   );

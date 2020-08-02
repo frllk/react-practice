@@ -12,10 +12,14 @@ export default class Route extends Component {
       {(context) => {
         // console.log('context', context); // sys-log
         const location = context.location
-        const { children, component, render, path } = this.props
+        const { children, component, render, path, computedMatch } = this.props
         // match: 匹配就渲染，不匹配就不渲染
         // 404的实现：===> 如果有match，就用自己的，如果没有，就用父子局传递下来的match
-        const match = path ? matchPath(location.pathname, this.props) : context.match
+        const match = computedMatch
+          ? computedMatch
+          : path
+            ? matchPath(location.pathname, this.props)
+            : context.match
         // location.pathname === path
         // window.location.pathname === path
         console.log('match', match); // sys-log
