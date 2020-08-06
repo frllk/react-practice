@@ -1,9 +1,10 @@
 import LoginService from "../service/login";
 
 // export const login = () => ({ type: "LOGIN_SUCCESS" });
+export const login = userInfo => ({ type: "LOGIN_SAGA", payload: userInfo });
 
 
-// async  await 方式实现
+/* // async  await 方式实现
 export const login = (userInfo) => {
   return async function (dispatch) {
     // 先去进行异步请求
@@ -13,7 +14,7 @@ export const login = (userInfo) => {
     }
     // 把状态存下来
   }
-}
+} */
 
 const loginPromise = (dispatch, userInfo) => {
   return LoginService.login(userInfo).then(
@@ -49,6 +50,8 @@ export const login = (userInfo) => dispatch => {
   })
 }
 */
+
+
 const getMoreUserInfo = (dispatch, userInfo) => {
   return LoginService.getMoreUserInfo(userInfo).then(res => {
     dispatch({
