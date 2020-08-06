@@ -33,7 +33,7 @@ class ExamplePage extends Component {
     this.props.getProductData()
   }
   render () {
-    // console.log('props', this.props); // sys-log
+    console.log('props', this.props); // sys-log
     const { data } = this.props.example
     return (
       <div>
