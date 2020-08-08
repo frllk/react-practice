@@ -6,7 +6,7 @@ export default (props) => {
   const { id } = props.match.params
   return (
     <div>
-      <h1 className={styles.title}>Page product/[id]：{id}</h1>
+      <h1 className={styles.title}>Page product/[{id}]</h1>
     </div>
   );
 }

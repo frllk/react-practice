@@ -7,15 +7,12 @@ for (let i = 0; i < 10; i++) {
     city: "城市" + i
   });
 }
-
 let total = 101;
-function searchProductData({ name = "", ...pagination }) {
-  console.log("pagination", pagination); //sy-log
+function searchProductData ({ name = "", ...pagination }) {
+  console.log("pagination", pagination, name); //sy-log
   const res = [];
-
   let pageSize = pagination.pageSize || 10;
   let current = pagination.current || 1;
-
   for (let i = 0; i < pageSize; i++) {
     let realIndex = i + (current - 1) * pageSize;
     let tem = {

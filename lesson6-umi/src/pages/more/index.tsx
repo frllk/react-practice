@@ -33,7 +33,7 @@ class More extends React.Component {
   onFinish = values => {
     console.log('values', values); // sy-log
     // this.props.getMoreDataBySearch(values);
-    this.props.getProductData(values);
+    this.props.getProductData({ name: values });
   };
   // 失败才会执行这个函数
   onFinishFailed = err => {
@@ -41,6 +41,8 @@ class More extends React.Component {
   };
   render() {
     const { data } = this.props.more;
+    console.log(this.props)
+    const { getProductData } = this.props.getProductData
     return (
       <PageHeaderWrapper className={styles.more}>
         <Card>
@@ -55,7 +57,7 @@ class More extends React.Component {
             <Form.Item>
               <Button type="primary" htmlType="submit">
                 查询
-  </Button>
+    </Button>
             </Form.Item>
           </Form>
         </Card>
@@ -78,5 +80,6 @@ export default connect(
     // getMoreDataBySearch: values => ({
     // type: 'more/getMoreDataBySearch',
     // payload: values,
+    // }),
   },
 )(More);
