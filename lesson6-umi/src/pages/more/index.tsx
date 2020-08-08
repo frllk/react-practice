@@ -42,7 +42,6 @@ class More extends React.Component {
   render() {
     const { data } = this.props.more;
     console.log(this.props)
-    const { getProductData } = this.props.getProductData
     return (
       <PageHeaderWrapper className={styles.more}>
         <Card>
