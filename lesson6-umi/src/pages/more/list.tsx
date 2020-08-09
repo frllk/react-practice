@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './list.less';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 import { connect } from 'umi';
+import { getProductData } from '../../services/product'
 
 const columns = [
   {
@@ -35,38 +36,23 @@ export default connect(
     constructor(props) {
       super(props)
     }
-    actionRef = React.createRef()
-    componentDidMount() {
-      this.getProductData()
-    }
 
-    getProductData = async () => {
-      const res = await this.props.getProductData({ name: '' });
-      console.log('res', res)
+    getProductData = async (params) => {
+      const { data } = await getProductData(params);
+      console.log('res', data.data)
+      return data
     }
 
     render() {
-      const { actionRef } = this.state
-      const { data } = this.props.more
-      const { getProductData } = this.props.getProductData
       return (
         <div>
           <h1 className={styles.title}>Page more/list</h1>
           <ProTable
             size="small"
             columns={columns}
-            actionRef={actionRef}
-            request={() => ({ data })}
-            // request={() => ({
-            //   data: [
-            //     {
-            //       name: 'Jack',
-            //       age: 12,
-            //       date: '2020-01-02',
-            //     },
-            //   ],
-            //   success: true,
-            // })}
+            request={params => {
+              return this.getProductData(params)
+            }}
             rowKey="name"
             pagination={{
               current: 1,
