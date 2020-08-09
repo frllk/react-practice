@@ -18,7 +18,6 @@ function createElement (type, config, ...children) {
     delete config.__self
     delete config.__source
   }
-
   // 这个地方我们自己写的没有考虑细节，比如key、ref等
   const props = {
     ...config,
@@ -27,6 +26,20 @@ function createElement (type, config, ...children) {
       typeof child === "object" ? child : createTextNode(child)
     )
   }
+
+  // 处理defaultProps
+  if (type && type.defaultProps) {
+    const { defaultProps } = type;
+    // console.log('=====', defaultProps)
+    // 源码中实现
+    // for (let propName in defaultProps) {
+    //   if (props[propName] === undefined) {
+    //     props[propName] = defaultProps[propName];
+    //   }
+    // }
+    Object.keys(propName => props[propName] === undefined ? props[propName] = defaultProps[propName] : "")
+  }
+
   return {
     type,
     props

@@ -9,7 +9,7 @@ function render (vnode, container) {
   const node = createNode(vnode)
   // 再把node插入container
   container.appendChild(node)
-  console.log('vnode', vnode, container); // sys-log
+  // console.log('vnode', vnode, container); // sys-log
 }
 
 // 创建node
