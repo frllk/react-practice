@@ -28,18 +28,18 @@ const jsx = (
     <p>全栈</p>
     <a href="https://www.kaikeba.com/">开课吧</a>
     {/* 类组件 */}
-    <ClassComponent name="class" color="green" />
+    {/* <ClassComponent name="class" color="green" /> */}
     {/* 函数组件 */}
-    <FunctionComponent name="function" />
-    <>
+    {/* <FunctionComponent name="function" /> */}
+    {/* <>
       <h1>aaa</h1>
       <h1>bbb</h1>
-    </>
-    {
+    </> */}
+    {/* {
       // 这样写外面会多一层div，源码中使用React.Fragment解决
       // [1, 2].map(item => <div key={item}>{item}</div>)
       [1, 2].map(item => <React.Fragment key={item}>{item}</React.Fragment>)
-    }
+    } */}
   </div>
 );
 
